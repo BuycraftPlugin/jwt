@@ -17,14 +17,14 @@ final class ValidAt implements Constraint
     /** @var DateInterval */
     private $leeway;
 
-    public function __construct(Clock $clock, DateInterval $leeway = null)
+    public function __construct(Clock $clock, ?DateInterval $leeway = null)
     {
         $this->clock  = $clock;
         $this->leeway = $this->guardLeeway($leeway);
     }
 
     /** @return DateInterval */
-    private function guardLeeway(DateInterval $leeway = null)
+    private function guardLeeway(?DateInterval $leeway = null)
     {
         if ($leeway === null) {
             return new DateInterval('PT0S');

@@ -72,9 +72,9 @@ class Token
     public function __construct(
         $headers = ['alg' => 'none'],
         $claims = [],
-        Signature $signature = null,
+        ?Signature $signature = null,
         array $payload = ['', ''],
-        Factory $claimFactory = null
+        ?Factory $claimFactory = null
     ) {
         $this->headers = $this->convertToDataSet($headers, $payload[0]);
         $this->claims = $this->convertToDataSet($claims, $payload[1]);
@@ -289,7 +289,7 @@ class Token
      *
      * @return bool
      */
-    public function isExpired(DateTimeInterface $now = null)
+    public function isExpired(?DateTimeInterface $now = null)
     {
         if (! $this->claims->has('exp')) {
             return false;

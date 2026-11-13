@@ -81,8 +81,8 @@ class Builder
      * @param ClaimFactory $claimFactory
      */
     public function __construct(
-        Encoder $encoder = null,
-        ClaimFactory $claimFactory = null
+        ?Encoder $encoder = null,
+        ?ClaimFactory $claimFactory = null
     ) {
         $this->encoder = $encoder ?: new Encoder();
         $this->claimFactory = $claimFactory ?: new ClaimFactory();
@@ -518,7 +518,7 @@ class Builder
      *
      * @return Token
      */
-    public function getToken(Signer $signer = null, Key $key = null)
+    public function getToken(?Signer $signer = null, ?Key $key = null)
     {
         if ($signer === null || $key === null) {
             trigger_error('Not specifying the signer and key to Builder#getToken() is deprecated. Please move the arguments from Builder#sign() to Builder#getToken().', E_USER_DEPRECATED);
@@ -579,7 +579,7 @@ class Builder
      *
      * @return Signature
      */
-    private function createSignature($payload, Signer $signer = null, Key $key = null)
+    private function createSignature($payload, ?Signer $signer = null, ?Key $key = null)
     {
         if ($signer === null || $key === null) {
             return Signature::fromEmptyData();

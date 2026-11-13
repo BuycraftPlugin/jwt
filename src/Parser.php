@@ -38,7 +38,7 @@ class Parser
      *
      * @param Decoder $decoder
      */
-    public function __construct(Decoder $decoder = null)
+    public function __construct(?Decoder $decoder = null)
     {
         $this->decoder = $decoder ?: new Decoder();
     }
