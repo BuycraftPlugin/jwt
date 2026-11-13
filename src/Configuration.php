@@ -43,8 +43,8 @@ final class Configuration
         Signer $signer,
         Key $signingKey,
         Key $verificationKey,
-        Encoder $encoder = null,
-        Decoder $decoder = null
+        ?Encoder $encoder = null,
+        ?Decoder $decoder = null
     ) {
         $this->signer          = $signer;
         $this->signingKey      = $signingKey;
@@ -62,8 +62,8 @@ final class Configuration
         Signer $signer,
         Key $signingKey,
         Key $verificationKey,
-        Encoder $encoder = null,
-        Decoder $decoder = null
+        ?Encoder $encoder = null,
+        ?Decoder $decoder = null
     ) {
         return new self(
             $signer,
@@ -78,8 +78,8 @@ final class Configuration
     public static function forSymmetricSigner(
         Signer $signer,
         Key $key,
-        Encoder $encoder = null,
-        Decoder $decoder = null
+        ?Encoder $encoder = null,
+        ?Decoder $decoder = null
     ) {
         return new self(
             $signer,
@@ -92,8 +92,8 @@ final class Configuration
 
     /** @return self */
     public static function forUnsecuredSigner(
-        Encoder $encoder = null,
-        Decoder $decoder = null
+        ?Encoder $encoder = null,
+        ?Decoder $decoder = null
     ) {
         $key = InMemory::plainText('');
 

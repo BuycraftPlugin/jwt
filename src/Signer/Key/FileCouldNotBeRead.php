@@ -9,7 +9,7 @@ if (PHP_MAJOR_VERSION === 7) {
     final class FileCouldNotBeRead extends InvalidArgumentException implements Exception
     {
         /** @return self */
-        public static function onPath(string $path, \Throwable $cause = null)
+        public static function onPath(string $path, ?\Throwable $cause = null)
         {
             return new self(
                 'The path "' . $path . '" does not contain a valid key file',
@@ -27,7 +27,7 @@ if (PHP_MAJOR_VERSION === 7) {
          *
          * @return self
          */
-        public static function onPath($path, \Exception $cause = null)
+        public static function onPath($path, ?\Exception $cause = null)
         {
             return new self(
                 'The path "' . $path . '" does not contain a valid key file',
